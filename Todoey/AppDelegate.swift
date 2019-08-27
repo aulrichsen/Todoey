@@ -16,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //First function that runs when app is opened
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
-        
         return true
     }
 

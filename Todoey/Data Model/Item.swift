@@ -8,8 +8,9 @@
 
 import Foundation
 
-
-class Item {
+//Item type is able to encode itself into a plist or a JSON
+//Must have standard data types
+class Item: Encodable, Decodable {
     var title : String = ""
     var done : Bool = false
     
