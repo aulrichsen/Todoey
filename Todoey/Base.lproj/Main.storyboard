@@ -17,6 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoItemCell" id="pqy-I5-m6f">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -32,7 +33,14 @@
                             <outlet property="delegate" destination="0Tb-Ch-a45" id="3tW-Xv-JqP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todoey" id="ma4-f7-oCm"/>
+                    <navigationItem key="navigationItem" title="Todoey" id="ma4-f7-oCm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="w4h-vy-9ll">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="0Tb-Ch-a45" id="Sxy-Kq-com"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6v-8n-yzy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,4 +66,5 @@
             <point key="canvasLocation" x="886.95652173913049" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.26459073890000001" green="0.51642682520000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

@@ -10,11 +10,17 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
-    let itemArray = ["Find Mike", "Buy Eggs", "Destroy Demogorgon"]
+    var itemArray = ["Find Mike", "Buy Eggs", "Destroy Demogorgon"]
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //Load itemArray from stored default data
+        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
+            itemArray = items
+        }
     }
 
     //MARK - Tableview Datasource Methods
@@ -48,6 +54,42 @@ class TodoListViewController: UITableViewController {
         }
         
     }
+    
+    //MARK - Add New Items
+    
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
+        
+        var textField = UITextField()
+        
+        //Popup/UIAlert controller to show
+        let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
+        
+        //What will happen once user clicks add item button on UIAlert
+        let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
+            
+            if textField.text != nil && textField.text != "" {
+                self.itemArray.append(textField.text!)  //Add alert text to itemArray
+                
+                //Saves updated array so that array will be reloaded every time app is opened
+                self.defaults.set(self.itemArray, forKey: "TodoListArray")
+                
+                self.tableView.reloadData()
+            }
+        }
+        
+        //Adds text field to alert to allow user to wirte their todo message
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new item"
+            
+            textField = alertTextField
+        }
+        
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     
 }
 
