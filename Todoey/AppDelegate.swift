@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //First function that runs when app is opened
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //Find realm database file location
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
         
         return true
     }
